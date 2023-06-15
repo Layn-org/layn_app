@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 		flex: 1,
         flexDirection: "row",
 		backgroundColor: "#ffffff",
-		alignItems: "flex-end",
+		alignItems: "flex-start",
 		justifyContent: "center",
 	},
 });
