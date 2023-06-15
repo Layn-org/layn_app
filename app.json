@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "urbauto_app",
+    "name": "Urbauto",
     "slug": "urbauto_app",
     "version": "1.0.0",
+    "owner": "urbauto",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,10 +22,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.urbauto.urbauto_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f40f53aa-2dff-484e-a034-22ea938df3d6"
+      }
     }
   }
 }
