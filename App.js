@@ -1,8 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
 import { Platform } from "react-native";
+import { Provider } from "react-redux";
 import FullscreenAreaView from "./src/components/utils/FullscreenAreaView";
 import TestComponent from "./src/components/utils/TestComponent";
+import { store } from "./src/store/storeConfig";
 
 export default function App()  {
     const initNavigationBar = async () => {
@@ -18,9 +20,11 @@ export default function App()  {
     }
     
 	return (
-		<FullscreenAreaView>
-			<StatusBar style="auto" />
-			<TestComponent />
-		</FullscreenAreaView>
+		<Provider store={store}>
+			<FullscreenAreaView>
+				<StatusBar style="auto" />
+				<TestComponent />
+			</FullscreenAreaView>
+		</Provider>
 	);
 }
