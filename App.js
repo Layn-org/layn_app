@@ -25,6 +25,7 @@ const App = () => {
     
 	return (
 		<Provider store={store}>
+        <StatusBar style="auto"/>
 			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen
