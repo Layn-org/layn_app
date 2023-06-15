@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
+import SignUpScreen from "./src/screens/SignUpScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import { store } from "./src/store/storeConfig";
 
@@ -25,7 +26,7 @@ const App = () => {
     
 	return (
 		<Provider store={store}>
-        <StatusBar style="auto"/>
+			<StatusBar style="auto" />
 			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen
@@ -33,6 +34,13 @@ const App = () => {
 						component={LoginScreen}
 						options={{
 							title: "Login to Urbauto",
+						}}
+					/>
+					<Stack.Screen
+						name="SignUp"
+						component={SignUpScreen}
+						options={{
+							title: "Sign up for Urbauto",
 						}}
 					/>
 					<Stack.Screen
