@@ -7,6 +7,7 @@ const signUp = async (email, password) => {
 	});
 	if (response?.error) {
 		console.log("@@@ Supabase sign up error:", response.error.message);
+        alert(response.error.message);
 	} else {
 		return response.data;
 	}
@@ -19,6 +20,7 @@ const logInWithPassword = async (email, password) => {
 	});
 	if (response?.error) {
 		console.log("@@@ Supabase login error:", response.error.message);
+        alert(response.error.message);
 	} else {
 		return response.data;
 	}
