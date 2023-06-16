@@ -15,11 +15,9 @@ const LoginScreen = () => {
 
 	const handleLogin = async () => {
 		const data = await logInWithPassword(email, password);
-		if (data.session && data.user) {
+		if (data && (data.session && data.user)) {
 			dispatch(setSessionInfo(data));
 			navigation.navigate("Home");
-		} else {
-			alert("Something went wrong!");
 		}
 	};
 
