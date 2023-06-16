@@ -1,13 +1,14 @@
 import Supabase from "./config";
 
 const signUp = async (email, password) => {
-	try {
-		const { data, error } = await Supabase.auth.signUp({
-			email: email,
-			password: password,
-		});
-	} catch (error) {
-		console.log("@@@ Sign Up Error", error);
+    const response = await Supabase.auth.signUp({
+        email: email,
+        password: password,
+    });
+    if (response?.error) {
+		console.log("@@@ Supabase sign up error:", response.error.message);
+	} else {
+		return response.data;
 	}
 };
 
@@ -24,8 +25,11 @@ const logInWithPassword = async (email, password) => {
 };
 
 const signOut = async () => {
-	const { error } = await Supabase.auth.signOut();
-	return error;
+	const response = await Supabase.auth.signOut();
+	if (response?.error) {
+        console.log("@@@ Supabase sign out error:", response.error.message);
+    }
+
 };
 
 export { signUp, logInWithPassword, signOut };
