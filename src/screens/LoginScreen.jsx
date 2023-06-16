@@ -31,7 +31,7 @@ const LoginScreen = () => {
 			<TextBox placeholder="Password" value={password} reduxAction={setPassword} />
 			<ConfirmButton title="Login" onPress={handleLogin} />
 			<Text>Don't have an account yet?</Text>
-			<ConfirmButton title="Sign Up" onPress={handleGoToSignUp} />
+			<ConfirmButton title="Create Account" onPress={handleGoToSignUp} />
 		</>
 	);
 };
