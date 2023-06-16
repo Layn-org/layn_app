@@ -1,11 +1,11 @@
 import Supabase from "./config";
 
 const signUp = async (email, password) => {
-    const response = await Supabase.auth.signUp({
-        email: email,
-        password: password,
-    });
-    if (response?.error) {
+	const response = await Supabase.auth.signUp({
+		email: email,
+		password: password,
+	});
+	if (response?.error) {
 		console.log("@@@ Supabase sign up error:", response.error.message);
 	} else {
 		return response.data;
@@ -18,18 +18,17 @@ const logInWithPassword = async (email, password) => {
 		password: password,
 	});
 	if (response?.error) {
-		console.log("@@@ Supabase login error:", response.error.message)
+		console.log("@@@ Supabase login error:", response.error.message);
 	} else {
-        return response.data
-    }
+		return response.data;
+	}
 };
 
 const signOut = async () => {
 	const response = await Supabase.auth.signOut();
 	if (response?.error) {
-        console.log("@@@ Supabase sign out error:", response.error.message);
-    }
-
+		console.log("@@@ Supabase sign out error:", response.error.message);
+	}
 };
 
 export { signUp, logInWithPassword, signOut };

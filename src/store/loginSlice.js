@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	email: null,
-    password: null,
-    rememberMe: false,
-    sessionInfo: null,
+	password: null,
+	sessionInfo: null,
 };
 
 export const loginSlice = createSlice({
@@ -17,15 +16,12 @@ export const loginSlice = createSlice({
 		setPassword: (state, action) => {
 			state.password = action.payload;
 		},
-		setRememberMe: (state, action) => {
-			state.rememberMe = action.payload;
-		},
 		setSessionInfo: (state, action) => {
 			state.sessionInfo = action.payload;
 		},
 	},
 });
 
-export const { setEmail, setPassword, setRememberMe, setSessionInfo } = loginSlice.actions;
+export const { setEmail, setPassword, setSessionInfo } = loginSlice.actions;
 
 export default loginSlice.reducer;

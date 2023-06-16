@@ -13,23 +13,23 @@ import { store } from "./src/store/storeConfig";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-    const initNavigationBar = async () => {
-        await NavigationBar.setVisibilityAsync("hidden");
-        await NavigationBar.setBehaviorAsync("overlay-swipe");
-        NavigationBar.addVisibilityListener(() => {
+	const initNavigationBar = async () => {
+		await NavigationBar.setVisibilityAsync("hidden");
+		await NavigationBar.setBehaviorAsync("overlay-swipe");
+		NavigationBar.addVisibilityListener(() => {
 			NavigationBar.setVisibilityAsync("hidden");
 		});
-    }
+	};
 
-    if (Platform.OS === "android") {
-        initNavigationBar();
-    }
-    
+	if (Platform.OS === "android") {
+		initNavigationBar();
+	}
+
 	return (
 		<Provider store={store}>
 			<StatusBar style="auto" />
 			<NavigationContainer>
-				<Stack.Navigator>
+				<Stack.Navigator initialRouteName={"Login"}>
 					<Stack.Screen
 						name="Login"
 						component={LoginScreen}
@@ -55,6 +55,6 @@ const App = () => {
 			</NavigationContainer>
 		</Provider>
 	);
-}
+};
 
 registerRootComponent(App);
