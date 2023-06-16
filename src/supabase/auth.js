@@ -1,34 +1,45 @@
+import { useDispatch } from "react-redux";
+import "react-native-url-polyfill/auto";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
-import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+import { SUPABASE_HOST, SUPABASE_API_KEY } from "@env";
+import { setSessionInfo } from "../store/loginSlice";
 
-const supabase = createClient(process.env.SUPABASE_HOST, process.env.SUPABASE_API_KEY);
+const supabase = createClient(SUPABASE_HOST, SUPABASE_API_KEY, {
+	auth: {
+		storage: AsyncStorage,
+	},
+});
 
-const signUp = async (email, password, firstName, lastName) => {
-    const { data, error } = await supabase.auth.signUp({
-		email: email,
-		password: password,
-		options: {
-			data: {
-				first_name: firstName,
-				last_name: lastName,
-			},
-		},
-	});
-    return {data, error};
-}
+const handleSignUpSuccess = (data) => {
+    const dispatch = useDispatch();
+    dispatch(setSessionInfo(data));
+	alert("A verification link as been sent to your email!");
+};
+
+const signUp = async (email, password) => {
+	try {
+		const { data, error } = await supabase.auth.signUp({
+			email: email,
+			password: password,
+		});
+		error ? console.log(error) : handleSignUpSuccess(data);
+	} catch (error) {
+		console.log("@@@ Sign Up Error", error);
+	}
+};
 
 const logInWithPassword = async (email, password) => {
 	const { data, error } = await supabase.auth.signInWithPassword({
 		email: email,
-		password: password
+		password: password,
 	});
 	return { data, error };
 };
 
 const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    return error;
-}
+	const { error } = await supabase.auth.signOut();
+	return error;
+};
 
 export { signUp, logInWithPassword, signOut };

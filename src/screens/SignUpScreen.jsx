@@ -4,6 +4,7 @@ import TextBox from "../components/input/TextBox";
 import OnOffSwitch from "../components/input/OnOffSwitch";
 import ConfirmButton from "../components/input/ConfirmButton";
 import { setEmail, setPassword, setRememberMe, setSessionInfo } from "../store/loginSlice";
+import { signUp } from "../supabase/auth";
 
 const SignUpScreen = () => {
 	const email = useSelector((state) => state.login.email);
@@ -13,6 +14,7 @@ const SignUpScreen = () => {
 
     const handleSignUp = () => {
         console.log("Sign up info:", email, password, rememberMe)
+        signUp(email, password)
     }
 
 	return (

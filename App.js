@@ -1,3 +1,4 @@
+import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from "expo-navigation-bar";
 import { Platform } from "react-native";
@@ -56,4 +57,4 @@ const App = () => {
 	);
 }
 
-export default App;
+registerRootComponent(App);
