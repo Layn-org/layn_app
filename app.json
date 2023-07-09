@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "Urbauto",
+    "name": "Layn",
     "slug": "urbauto_app",
     "version": "1.0.0",
-    "owner": "urbauto",
+    "owner": "Layn",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.urbauto.urbauto_app"
+      "package": "com.layn.layn_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
