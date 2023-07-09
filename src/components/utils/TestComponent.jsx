@@ -11,7 +11,7 @@ const TestComponent = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-        flexDirection: "row",
+		flexDirection: "row",
 		backgroundColor: "#ffffff",
 		alignItems: "flex-start",
 		justifyContent: "center",
