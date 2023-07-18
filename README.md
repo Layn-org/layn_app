@@ -14,8 +14,12 @@
 
 2. Run `npm i` to get all the required dependencies.
 
-3. Download Expo app on your iOS or Android device [here](https://expo.dev/client).
+3. Create your Expo account [here](https://expo.dev/).
 
-4. Run `npm run android` or `npm run ios` depending on your mobile device.
+4. Download the Expo app on your iOS or Android device [here](https://expo.dev/client) and log into your account.
 
-5. Scan the QR code in the terminal with the Expo app.
+5. Run `npx expo login` then enter the email and password associated to your Expo account.
+
+6. Run `npm run start` to start the development server.
+
+7. Click the development server that appears in the Expo app or scan the QR code in the terminal.
