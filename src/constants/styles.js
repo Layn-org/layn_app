@@ -1,7 +1,7 @@
 export const colors = {
-	brand: "#FFDD47",
-	brandAccent: "#FFE570",
-	white: "#FFF4C2",
-	secondary: "#353431",
-	secondaryAccent: "#76756E",
+	text: "#ecebe4",
+	background: "#353431",
+	primary: "#FFDD47",
+	secondary: "#1e1d15",
+	accent: "#b89d23",
 };
