@@ -1,10 +1,12 @@
-import { Text } from "react-native";
+import { StyleSheet, Text, Image, ImageBackground } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import TextBox from "../components/input/TextBox";
 import ConfirmButton from "../components/input/ConfirmButton";
 import { setEmail, setPassword, setSessionInfo } from "../store/loginSlice";
 import { logInWithPassword } from "../supabase/auth";
+import FullscreenAreaView from "../components/utils/FullscreenAreaView";
+import { colors } from "../constants/styles";
 
 const LoginScreen = () => {
 	const navigation = useNavigation();
@@ -26,14 +28,32 @@ const LoginScreen = () => {
 	};
 
 	return (
-		<>
-			<TextBox placeholder="Email" value={email} reduxAction={setEmail} />
-			<TextBox placeholder="Password" value={password} reduxAction={setPassword} />
-			<ConfirmButton title="Login" onPress={handleLogin} />
-			<Text>Don't have an account yet?</Text>
-			<ConfirmButton title="Create Account" onPress={handleGoToSignUp} />
-		</>
+		<FullscreenAreaView style={styles.content}>
+            <Image style={styles.logo} source={require("../assets/logo_large.png")} />
+            <TextBox placeholder="Email" value={email} reduxAction={setEmail} />
+            <TextBox placeholder="Password" value={password} reduxAction={setPassword} />
+            <ConfirmButton title="Login" onPress={handleLogin} />
+            <Text style={styles.noAccountText}>Don't have an account yet?</Text>
+            <ConfirmButton title="Create Account" onPress={handleGoToSignUp} />
+		</FullscreenAreaView>
 	);
 };
+
+const styles = StyleSheet.create({
+	content: {
+		justifyContent: "center",
+	},
+	logo: {
+		width: 200,
+		height: 200,
+		alignSelf: "center",
+		marginTop: 100,
+		marginBottom: 20,
+	},
+	noAccountText: {
+		color: colors.text,
+        marginTop: 30,
+	},
+});
 
 export default LoginScreen;

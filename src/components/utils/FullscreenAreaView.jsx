@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import Constants from "expo-constants";
+import { colors } from "../../constants/styles";
 
 const FullscreenAreaView = ({ children }) => {
 	return (
@@ -11,8 +12,9 @@ const FullscreenAreaView = ({ children }) => {
 
 const styles = StyleSheet.create({
 	view: {
-		flex: 1,
+        flex: 1,
 		marginTop: Constants.statusBarHeight,
+		backgroundColor: colors.background,
 	},
 });
 

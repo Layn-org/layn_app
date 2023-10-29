@@ -34,7 +34,7 @@ const App = () => {
 						name="Login"
 						component={LoginScreen}
 						options={{
-							title: "Login to Urbauto",
+							headerShown: false,
 						}}
 					/>
 					<Stack.Screen

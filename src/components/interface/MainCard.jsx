@@ -15,14 +15,14 @@ const MainCard = ({ title }) => {
 
 const styles = StyleSheet.create({
 	outerCard: {
-		backgroundColor: colors.secondaryAccent,
+		backgroundColor: colors.background,
 		borderRadius: 25,
 		height: 200,
 		marginHorizontal: 10,
 		marginTop: 10,
 	},
 	title: {
-		color: colors.white,
+		color: colors.text,
 		fontSize: 30,
 		marginLeft: 5,
 	},
